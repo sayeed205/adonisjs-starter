@@ -42,9 +42,7 @@ export default function ThemeToggle({ className }: { className?: string }) {
 
     try {
       window.localStorage.setItem('theme', next)
-    } catch {
-      // Storage unavailable or blocked.
-    }
+    } catch {}
   }
 
   useEffect(() => {
