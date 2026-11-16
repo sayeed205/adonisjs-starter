@@ -2,7 +2,7 @@
   "name": "adonisjs-starter",
   "version": "0.0.0",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "type": "module",
   "imports": {
     "#controllers/*": "./app/controllers/*.js",
@@ -96,6 +96,7 @@
   "engines": {
     "node": ">=24.0.0"
   },
+  "packageManager": "pnpm@12.21.0",
   "hotHook": {
     "boundaries": [
       "./app/controllers/**/*.ts",
