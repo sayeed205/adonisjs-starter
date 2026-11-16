@@ -29,6 +29,7 @@
     "build": "node ace build",
     "dev": "node ace serve --hmr",
     "test": "node ace test",
+    "test:coverage": "c8 node ace test",
     "test:lint": "node --test tools/oxlint/tenkai/rules/*.test.mjs",
     "lint": "oxlint --fix",
     "format": "oxfmt --write .",
@@ -66,6 +67,7 @@
   "devDependencies": {
     "@adonisjs/assembler": "^8.6.0",
     "@adonisjs/tsconfig": "^2.0.0",
+    "@japa/api-client": "^3.2.1",
     "@japa/assert": "^4.2.0",
     "@japa/browser-client": "^2.3.0",
     "@japa/plugin-adonisjs": "^5.2.0",
@@ -79,6 +81,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.3.0",
+    "c8": "^12.0.0",
     "eslint": "^10.15.0",
     "hot-hook": "^1.1.0",
     "oxfmt": "^0.78.0",

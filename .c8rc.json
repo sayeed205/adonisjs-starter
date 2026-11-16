@@ -1,0 +1,6 @@
+{
+  "all": true,
+  "include": ["app/**", "start/**"],
+  "exclude": ["tests/**", "node_modules/**", "build/**", "database/**", "tools/**", "inertia/**"],
+  "reporter": ["text", "html"]
+}

@@ -19,10 +19,12 @@ export default class InertiaMiddleware extends BaseInertiaMiddleware {
     const { auth, request } = ctx as Partial<HttpContext>
 
     // SAFETY: Cookie app_theme stores user preference; defaults to system.
-    const rawTheme = request?.plainCookie('app_theme', {
-      defaultValue: 'system',
-      encoded: false,
-    })
+    const rawTheme =
+      request?.cookie('app_theme') ??
+      request?.plainCookie('app_theme', {
+        defaultValue: 'system',
+        encoded: false,
+      })
     const theme: 'light' | 'dark' | 'system' =
       rawTheme === 'light' || rawTheme === 'dark' || rawTheme === 'system' ? rawTheme : 'system'
 
