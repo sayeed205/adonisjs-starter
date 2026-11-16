@@ -20,16 +20,18 @@ const items: NavItem[] = []
 export default function SettingsLayout({ children }: { children: ReactNode }) {
   return (
     <Page title="Settings" description="Manage your account settings and preferences.">
-      <div className="sidebar-layout">
-        <nav className="sidebar-layout__nav" aria-label="Settings">
-          {items.map(({ label, route, icon: Icon }) => (
-            <NavLink key={label} route={route} exact className="sidebar-layout__item">
-              {Icon && <Icon size={16} />}
-              {label}
-            </NavLink>
-          ))}
-        </nav>
-        <div className="sidebar-layout__content panel">{children}</div>
+      <div className="flex flex-col gap-8 md:flex-row">
+        {items.length > 0 && (
+          <nav className="flex shrink-0 gap-1 md:w-64 md:flex-col" aria-label="Settings">
+            {items.map(({ label, route, icon: Icon }) => (
+              <NavLink key={label} route={route} exact>
+                {Icon && <Icon className="size-4" />}
+                <span>{label}</span>
+              </NavLink>
+            ))}
+          </nav>
+        )}
+        <div className="bg-card text-card-foreground flex-1 rounded-2xl border p-6 shadow-xs">{children}</div>
       </div>
     </Page>
   )

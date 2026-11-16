@@ -1,5 +1,6 @@
 import { Link } from '@adonisjs/inertia/react'
 import { usePage } from '@inertiajs/react'
+import { cn } from 'cn'
 import { type LucideIcon } from 'lucide-react'
 import { type ReactNode } from 'react'
 
@@ -36,7 +37,17 @@ export default function NavLink({
   const isActive = exact ? path === href : path === href || path.startsWith(`${href}/`)
 
   return (
-    <Link href={href} className={className} aria-current={isActive ? 'page' : undefined}>
+    <Link
+      href={href}
+      className={cn(
+        'inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors',
+        isActive
+          ? 'bg-secondary text-secondary-foreground'
+          : 'text-muted-foreground hover:bg-muted hover:text-foreground',
+        className,
+      )}
+      aria-current={isActive ? 'page' : undefined}
+    >
       {children}
     </Link>
   )

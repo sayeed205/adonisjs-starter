@@ -22,15 +22,15 @@ export default function Page({
   const hasHeader = !hideTitle || description || actions
 
   return (
-    <div className="page">
+    <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 p-4 sm:p-6 lg:p-8">
       <Head title={title} />
       {hasHeader && (
-        <header className="page__header">
+        <header className="flex flex-col gap-4 border-b pb-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            {!hideTitle && <h1 className="page__title">{title}</h1>}
-            {description && <p className="page__description">{description}</p>}
+            {!hideTitle && <h1 className="font-heading text-2xl font-bold tracking-tight">{title}</h1>}
+            {description && <p className="text-muted-foreground mt-1 text-sm">{description}</p>}
           </div>
-          {actions && <div className="page__actions">{actions}</div>}
+          {actions && <div className="flex items-center gap-2">{actions}</div>}
         </header>
       )}
       {children}

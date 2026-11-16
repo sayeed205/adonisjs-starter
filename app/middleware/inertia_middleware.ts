@@ -18,11 +18,13 @@ export default class InertiaMiddleware extends BaseInertiaMiddleware {
     // SAFETY: Adonis may invoke this hook before auth middleware hydrates the context.
     const { auth, request } = ctx as Partial<HttpContext>
 
-    const theme: 'light' | 'dark' =
-      request?.plainCookie('app_theme', {
-        defaultValue: 'light',
-        encoded: false,
-      }) ?? 'light'
+    // SAFETY: Cookie app_theme stores user preference; defaults to system.
+    const rawTheme = request?.plainCookie('app_theme', {
+      defaultValue: 'system',
+      encoded: false,
+    })
+    const theme: 'light' | 'dark' | 'system' =
+      rawTheme === 'light' || rawTheme === 'dark' || rawTheme === 'system' ? rawTheme : 'system'
 
     /**
      * Data shared with all Inertia pages. Make sure you are using

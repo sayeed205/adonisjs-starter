@@ -1,9 +1,9 @@
 import { router, usePage } from '@inertiajs/react'
-import { CircleAlert, CircleCheck } from 'lucide-react'
+import { CircleAlert, CircleCheck, Info, Loader2, TriangleAlert } from 'lucide-react'
 import { useEffect } from 'react'
-import { toast, Toaster } from 'sonner'
+import { toast, Toaster, type ToasterProps } from 'sonner'
 
-export default function FlashToasts() {
+export default function FlashToasts(props: ToasterProps) {
   const { flash } = usePage()
 
   useEffect(() => {
@@ -20,14 +20,27 @@ export default function FlashToasts() {
     }
   }, [flash])
 
+  // SAFETY: Custom CSS variables for Sonner popover tokens.
+  const customStyles = {
+    '--normal-bg': 'var(--popover)',
+    '--normal-text': 'var(--popover-foreground)',
+    '--normal-border': 'var(--border)',
+    '--border-radius': 'var(--radius)',
+  } as React.CSSProperties
+
   return (
     <Toaster
       position="top-center"
-      toastOptions={{ unstyled: true }}
       icons={{
-        success: <CircleCheck size={18} strokeWidth={1.8} />,
-        error: <CircleAlert size={18} strokeWidth={1.8} />,
+        success: <CircleCheck className="size-4" />,
+        info: <Info className="size-4" />,
+        warning: <TriangleAlert className="size-4" />,
+        error: <CircleAlert className="size-4" />,
+        loading: <Loader2 className="size-4 animate-spin" />,
       }}
+      style={customStyles}
+      richColors
+      {...props}
     />
   )
 }

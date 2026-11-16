@@ -15,14 +15,14 @@ export default function Section({
   children: ReactNode
 }) {
   return (
-    <section className="section">
+    <section className="space-y-4">
       {(title || description) && (
-        <header className="section__header">
-          {title && <h2 className="section__title">{title}</h2>}
-          {description && <p className="section__description">{description}</p>}
+        <header className="space-y-1">
+          {title && <h2 className="text-lg font-semibold tracking-tight">{title}</h2>}
+          {description && <p className="text-muted-foreground text-sm">{description}</p>}
         </header>
       )}
-      <div className="section__body">{children}</div>
+      <div>{children}</div>
     </section>
   )
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html data-theme="{{ request.plainCookie('app_theme', { defaultValue: 'light', encoded: false }) }}">
+@let(theme = request.plainCookie('app_theme', { defaultValue: 'system', encoded: false }))
+<html class="{{ theme === 'dark' ? 'dark' : '' }}" data-theme="{{ theme }}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,13 +8,35 @@
       AdonisJS
     </title>
 
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          var cookieMatch = document.cookie.match(/(?:^|; )app_theme=([^;]*)/);
+          var stored = cookieMatch ? decodeURIComponent(cookieMatch[1]) : window.localStorage.getItem('theme');
+          var isDark = stored === 'dark' || ((!stored || stored === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            root.classList.add('dark');
+            root.setAttribute('data-theme', 'dark');
+          } else {
+            root.classList.remove('dark');
+            root.setAttribute('data-theme', 'light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..700&family=Nunito+Sans:wght@400..700&display=swap" rel="stylesheet" />
+
     @viteReactRefresh()
     @vite(['inertia/app.tsx'])
     @inertiaHead()
     @stack('dumper')
   </head>
 
-  <body>
+  <body class="min-h-screen bg-background font-sans text-foreground antialiased">
     @inertia()
   </body>
 

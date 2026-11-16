@@ -5,27 +5,28 @@ import { type ReactNode } from 'react'
 import FlashToasts from '~/components/flash_toasts'
 import Logo from '~/components/logo'
 import ThemeToggle from '~/components/theme_toggle'
+import { buttonVariants } from '~/components/ui/button'
 
 export default function MarketingLayout({ children }: { children: ReactNode }) {
   const { props } = usePage()
 
   return (
-    <>
-      <header className="header header--floating">
-        <div className="header__inner">
+    <div className="bg-background text-foreground flex min-h-screen flex-col">
+      <header className="bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-40 w-full border-b backdrop-blur">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
           <Logo size={28} />
-          <div className="header__right">
+          <div className="flex items-center gap-2">
             <ThemeToggle />
             {props.user ? (
-              <Link route="dashboard" className="btn btn--primary btn--sm">
+              <Link route="dashboard" className={buttonVariants({ variant: 'default', size: 'sm' })}>
                 Dashboard
               </Link>
             ) : (
               <>
-                <Link route="session.create" className="btn btn--ghost btn--sm">
+                <Link route="session.create" className={buttonVariants({ variant: 'ghost', size: 'sm' })}>
                   Sign in
                 </Link>
-                <Link route="new_account.create" className="btn btn--primary btn--sm">
+                <Link route="new_account.create" className={buttonVariants({ variant: 'default', size: 'sm' })}>
                   Get started
                 </Link>
               </>
@@ -33,8 +34,8 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
       </header>
-      {children}
+      <main className="flex flex-1 flex-col">{children}</main>
       <FlashToasts />
-    </>
+    </div>
   )
 }

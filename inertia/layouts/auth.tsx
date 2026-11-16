@@ -6,33 +6,18 @@ import ThemeToggle from '~/components/theme_toggle'
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
-    <>
-      <div className="auth">
-        <div className="auth__form-col">
-          <Logo size={28} />
-          <div className="auth__form-wrap">{children}</div>
-          <div style={{ height: 20 }} />
-        </div>
-
-        <aside className="auth__aside">
-          <div className="auth__aside-top">
-            <ThemeToggle />
-          </div>
-
-          <p className="auth__quote">Auth, kept intentionally minimal so you can build it your way.</p>
-
-          <div>
-            <div className="pitch__t">Looking for production-ready auth?</div>
-            <p className="pitch__p">
-              Check out Feature packs, production-ready full-stack components from the creator of AdonisJS.
-            </p>
-            <a className="il pitch__a" href="https://plus.adonisjs.com/feature-packs" target="_blank" rel="noreferrer">
-              Explore Feature packs →
-            </a>
-          </div>
-        </aside>
+    <div className="relative flex min-h-screen flex-col items-center justify-center p-4 md:p-8">
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
       </div>
+
+      <div className="mb-6 flex flex-col items-center gap-2">
+        <Logo size={36} />
+      </div>
+
+      <div className="w-full max-w-sm">{children}</div>
+
       <FlashToasts />
-    </>
+    </div>
   )
 }
