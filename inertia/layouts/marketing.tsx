@@ -1,12 +1,14 @@
-import Logo from '~/components/logo'
-import { type ReactNode } from 'react'
-import { usePage } from '@inertiajs/react'
 import { Link } from '@adonisjs/inertia/react'
+import { usePage } from '@inertiajs/react'
+import { type ReactNode } from 'react'
+
 import FlashToasts from '~/components/flash_toasts'
+import Logo from '~/components/logo'
 import ThemeToggle from '~/components/theme_toggle'
 
 export default function MarketingLayout({ children }: { children: ReactNode }) {
   const { props } = usePage()
+
   return (
     <>
       <header className="header header--floating">

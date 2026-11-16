@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { Moon, Sun } from 'lucide-react'
 import { usePage } from '@inertiajs/react'
+import { Moon, Sun } from 'lucide-react'
+import { useState } from 'react'
 
 const COOKIE = 'app_theme'
 const ONE_YEAR = 60 * 60 * 24 * 365
@@ -17,6 +17,7 @@ export default function ThemeToggle() {
   }
 
   const isDark = theme === 'dark'
+
   return (
     <button
       type="button"

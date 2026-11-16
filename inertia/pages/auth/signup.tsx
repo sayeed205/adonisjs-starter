@@ -1,5 +1,6 @@
-import AuthLayout from '~/layouts/auth'
 import { Form, Link } from '@adonisjs/inertia/react'
+
+import AuthLayout from '~/layouts/auth'
 
 export default function Signup() {
   return (
@@ -71,9 +72,7 @@ export default function Signup() {
                 placeholder="••••••••"
                 aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
               />
-              {errors.passwordConfirmation && (
-                <span className="field__error">{errors.passwordConfirmation}</span>
-              )}
+              {errors.passwordConfirmation && <span className="field__error">{errors.passwordConfirmation}</span>}
             </div>
 
             <button

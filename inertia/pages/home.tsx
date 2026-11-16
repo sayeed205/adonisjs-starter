@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+
 import MarketingLayout from '~/layouts/marketing'
 
 export default function Home() {
@@ -14,13 +15,11 @@ export default function Home() {
         <div className="pc-lead">Welcome to the power of a full-stack React app.</div>
 
         <p className="pc-para">
-          Powered by Inertia and React, this setup blends server-driven routing with rich
-          client-side interactivity that feels seamless, fast, and cohesive.
+          Powered by Inertia and React, this setup blends server-driven routing with rich client-side interactivity that
+          feels seamless, fast, and cohesive.
         </p>
 
-        <p className="pc-para">
-          This page is simply proof the engine started. Everything from here is yours to build.
-        </p>
+        <p className="pc-para">This page is simply proof the engine started. Everything from here is yours to build.</p>
 
         <ul className="links">
           <li>
@@ -44,12 +43,7 @@ export default function Home() {
             </a>
           </li>
           <li>
-            <a
-              className="lrow"
-              href="https://discord.com/invite/vDcEjq6"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a className="lrow" href="https://discord.com/invite/vDcEjq6" target="_blank" rel="noreferrer">
               <span className="lrow__bullet" />
               <span className="lrow__title">Discord</span>
               <span className="lrow__desc">Meet fellow AdonisJS developers</span>
@@ -62,13 +56,8 @@ export default function Home() {
 
         <div className="stack">
           <span className="tag">Built with</span>
-          <div className="pile" role="list" aria-label="Tech stack">
-            <span
-              className="tile"
-              role="listitem"
-              title="AdonisJS"
-              style={{ background: '#5A45FF' }}
-            >
+          <ul className="pile" aria-label="Tech stack" style={{ listStyle: 'none' }}>
+            <li className="tile" title="AdonisJS" style={{ background: '#5A45FF' }}>
               <svg viewBox="0 0 160 160" fill="#fff" aria-hidden="true">
                 <path
                   fillRule="evenodd"
@@ -76,19 +65,14 @@ export default function Home() {
                   d="M0 80.0001C0 144.521 15.4786 160 79.9999 160 144.521 160 160 144.521 160 80.0001 160 15.4786 144.521 0 79.9999 0 15.4786 0 0 15.4786 0 80.0001zm32.2607 16.6191l25.0918-57.0266c4.2361-9.613 12.3825-14.8268 22.6474-14.8268 10.265 0 18.4113 5.2138 22.6481 14.8268l25.091 57.0266c1.141 2.77 2.118 6.3538 2.118 9.4498 0 14.175-9.939 24.114-24.114 24.114-4.828 0-8.6629-1.232-12.5444-2.479-3.9771-1.278-8.0036-2.572-13.1987-2.572-5.1349 0-9.2597 1.306-13.3154 2.589-3.9233 1.241-7.7814 2.462-12.4279 2.462-14.1752 0-24.1141-9.939-24.1141-24.114 0-3.096.9776-6.6798 2.1182-9.4498zm47.7392-47.0871L55.2344 105.581c7.332-3.422 15.8043-5.051 24.7655-5.051 8.6358 0 17.434 1.629 24.4401 5.051L79.9999 49.5321z"
                 />
               </svg>
-            </span>
-            <span
-              className="tile"
-              role="listitem"
-              title="Inertia"
-              style={{ background: '#9061F9' }}
-            >
+            </li>
+            <li className="tile" title="Inertia" style={{ background: '#9061F9' }}>
               <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
                 <path d="M12.5 8l4 4l-4 4h4.5l4 -4l-4 -4z" />
                 <path d="M3.5 8l4 4l-4 4h4.5l4 -4l-4 -4z" />
               </svg>
-            </span>
-            <span className="tile" role="listitem" title="React" style={{ background: '#23272F' }}>
+            </li>
+            <li className="tile" title="React" style={{ background: '#23272F' }}>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <g fill="none" stroke="#61DAFB" strokeWidth="1">
                   <ellipse cx="12" cy="12" rx="11" ry="4.2" />
@@ -97,13 +81,8 @@ export default function Home() {
                 </g>
                 <circle cx="12" cy="12" r="2.1" fill="#61DAFB" />
               </svg>
-            </span>
-            <span
-              className="tile"
-              role="listitem"
-              title="TypeScript"
-              style={{ background: '#3178C6' }}
-            >
+            </li>
+            <li className="tile" title="TypeScript" style={{ background: '#3178C6' }}>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <text
                   x="12"
@@ -118,29 +97,15 @@ export default function Home() {
                   TS
                 </text>
               </svg>
-            </span>
-            <span className="tile" role="listitem" title="Vite" style={{ background: '#1E1B2E' }}>
+            </li>
+            <li className="tile" title="Vite" style={{ background: '#1E1B2E' }}>
               <svg viewBox="0 0 410 404" aria-hidden="true">
                 <defs>
-                  <linearGradient
-                    id="viteA"
-                    x1="6"
-                    y1="33"
-                    x2="235"
-                    y2="344"
-                    gradientUnits="userSpaceOnUse"
-                  >
+                  <linearGradient id="viteA" x1="6" y1="33" x2="235" y2="344" gradientUnits="userSpaceOnUse">
                     <stop stopColor="#41D1FF" />
                     <stop offset="1" stopColor="#BD34FE" />
                   </linearGradient>
-                  <linearGradient
-                    id="viteB"
-                    x1="194"
-                    y1="8"
-                    x2="236"
-                    y2="292"
-                    gradientUnits="userSpaceOnUse"
-                  >
+                  <linearGradient id="viteB" x1="194" y1="8" x2="236" y2="292" gradientUnits="userSpaceOnUse">
                     <stop stopColor="#FFEA83" />
                     <stop offset=".083" stopColor="#FFDD35" />
                     <stop offset="1" stopColor="#FFA800" />
@@ -155,8 +120,8 @@ export default function Home() {
                   fill="url(#viteB)"
                 />
               </svg>
-            </span>
-          </div>
+            </li>
+          </ul>
         </div>
       </article>
     </div>

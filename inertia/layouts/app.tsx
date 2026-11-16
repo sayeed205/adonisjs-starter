@@ -1,10 +1,11 @@
-import Logo from '~/components/logo'
-import { type ReactNode } from 'react'
-import { House, LogOut } from 'lucide-react'
 import { Form } from '@adonisjs/inertia/react'
+import { House, LogOut } from 'lucide-react'
+import { type ReactNode } from 'react'
+
 import FlashToasts from '~/components/flash_toasts'
-import ThemeToggle from '~/components/theme_toggle'
+import Logo from '~/components/logo'
 import NavLink, { type NavItem } from '~/components/nav_link'
+import ThemeToggle from '~/components/theme_toggle'
 
 /**
  * Top-level app navigation. Add an entry here for every new area of your

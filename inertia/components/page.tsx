@@ -1,5 +1,5 @@
-import { type ReactNode } from 'react'
 import { Head } from '@inertiajs/react'
+import { type ReactNode } from 'react'
 
 /**
  * The frame for an app page: sets the document title and renders the page

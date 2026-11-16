@@ -15,7 +15,7 @@ class ApiSerializer extends BaseSerializer<{
    * Wraps all serialized data under this key in the response object.
    * Example: { data: [...] } instead of returning raw arrays/objects
    */
-  wrap: 'data' = 'data'
+  wrap = 'data' as const
 
   /**
    * Validates and defines pagination metadata structure for paginated responses.
@@ -23,12 +23,13 @@ class ApiSerializer extends BaseSerializer<{
    *
    * @throws Error if metadata doesn't match Lucid's pagination structure
    */
+  // Adonis supplies unknown pagination metadata; this override validates it at the serializer boundary.
+  // eslint-disable-next-line tenkai/no-unknown-parameters
   definePaginationMetaData(metaData: unknown): SimplePaginatorMetaKeys {
     if (!this.isLucidPaginatorMetaData(metaData)) {
-      throw new Error(
-        'Invalid pagination metadata. Expected metadata to contain Lucid pagination keys'
-      )
+      throw new Error('Invalid pagination metadata. Expected metadata to contain Lucid pagination keys')
     }
+
     return metaData
   }
 }
@@ -37,18 +38,16 @@ class ApiSerializer extends BaseSerializer<{
  * Single instance of ApiSerializer used across the application
  */
 const serializer = new ApiSerializer()
+// SAFETY: The assigned function and property delegate to the matching ApiSerializer methods.
 const serialize = Object.assign(
   function (this: HttpContext, ...[data, resolver]: Parameters<ApiSerializer['serialize']>) {
     return serializer.serialize(data, resolver ?? this.containerResolver)
   },
   {
-    withoutWrapping(
-      this: HttpContext,
-      ...[data, resolver]: Parameters<ApiSerializer['serializeWithoutWrapping']>
-    ) {
+    withoutWrapping(this: HttpContext, ...[data, resolver]: Parameters<ApiSerializer['serializeWithoutWrapping']>) {
       return serializer.serializeWithoutWrapping(data, resolver ?? this.containerResolver)
     },
-  }
+  },
 ) as ApiSerializer['serialize'] & { withoutWrapping: ApiSerializer['serializeWithoutWrapping'] }
 
 /**

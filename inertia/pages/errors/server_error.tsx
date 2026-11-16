@@ -14,8 +14,7 @@ export default function ServerError() {
           <em>The server hit an unexpected error.</em>
         </div>
         <p className="pc-para">
-          Try again in a moment. If the problem persists, check the server logs for the underlying
-          exception.
+          Try again in a moment. If the problem persists, check the server logs for the underlying exception.
         </p>
       </article>
     </div>

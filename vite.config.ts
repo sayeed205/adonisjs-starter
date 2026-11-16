@@ -1,12 +1,9 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
 import adonisjs from '@adonisjs/vite/client'
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [
-    react(),
-    adonisjs({ entryPoints: ['inertia/app.tsx'], reload: ['resources/views/**/*.edge'] }),
-  ],
+  plugins: [react(), adonisjs({ entryPoints: ['inertia/app.tsx'], reload: ['resources/views/**/*.edge'] })],
 
   /**
    * Define aliases for importing modules from

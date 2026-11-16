@@ -1,6 +1,7 @@
-import Page from '~/components/page'
 import { type ReactNode } from 'react'
+
 import NavLink, { type NavItem } from '~/components/nav_link'
+import Page from '~/components/page'
 
 /**
  * The pages of the settings area, listed in the sidebar. Register a route

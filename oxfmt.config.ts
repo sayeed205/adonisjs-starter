@@ -1,0 +1,53 @@
+export default {
+  $schema: './node_modules/oxfmt/configuration_schema.json',
+  sortPackageJson: true,
+  sortTailwindcss: {
+    functions: ['tv', 'clsx', 'cn', 'cva'],
+  },
+  arrowParens: 'always',
+  bracketSpacing: true,
+  ignorePatterns: [
+    '**/.adonisjs/**',
+    '**/build/**',
+    '**/tmp/**',
+    '**/public/assets/**',
+    '**/storybook-static/**',
+    '.agent/**',
+    '.agents/**',
+    '.claude/**',
+    '.codex/**',
+    'tools/oxlint/**',
+  ],
+  printWidth: 120,
+  quoteProps: 'consistent',
+  semi: false,
+  singleQuote: true,
+  sortImports: {
+    customGroups: [
+      {
+        groupName: 'node',
+        elementNamePattern: ['node:*', 'node:*/**'],
+      },
+      {
+        groupName: 'node',
+        selector: 'builtin',
+      },
+    ],
+    groups: [
+      'side_effect',
+      ['node', 'builtin'],
+      'external',
+      ['internal', 'subpath'],
+      ['parent', 'sibling', 'index'],
+      'style',
+      'type',
+      'unknown',
+    ],
+    internalPattern: ['#', '~/'],
+    newlinesBetween: true,
+    order: 'asc',
+  },
+  trailingComma: 'all',
+  tabWidth: 2,
+  useTabs: false,
+}

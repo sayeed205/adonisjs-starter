@@ -13,9 +13,7 @@ export default function NotFound() {
           <span>Not found.</span>
           <em>That route hasn&apos;t been built yet.</em>
         </div>
-        <p className="pc-para">
-          The page you tried to reach doesn&apos;t exist. Check the URL or head back home.
-        </p>
+        <p className="pc-para">The page you tried to reach doesn&apos;t exist. Check the URL or head back home.</p>
       </article>
     </div>
   )

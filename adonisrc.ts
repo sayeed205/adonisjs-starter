@@ -1,6 +1,6 @@
-import { indexPages } from '@adonisjs/inertia'
-import { indexEntities } from '@adonisjs/core/generators'
 import { defineConfig } from '@adonisjs/core/app'
+import { indexEntities } from '@adonisjs/core/generators'
+import { indexPages } from '@adonisjs/inertia'
 import { generateRegistry } from '@tuyau/core/hooks'
 
 export default defineConfig({
@@ -69,11 +69,7 @@ export default defineConfig({
   | List of modules to import before starting the application.
   |
   */
-  preloads: [
-    () => import('#start/routes'),
-    () => import('#start/kernel'),
-    () => import('#start/validator'),
-  ],
+  preloads: [() => import('#start/routes'), () => import('#start/kernel'), () => import('#start/validator')],
 
   /*
   |--------------------------------------------------------------------------

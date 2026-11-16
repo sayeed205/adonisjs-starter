@@ -1,12 +1,13 @@
-import { urlFor } from '~/client'
+import { Link } from '@adonisjs/inertia/react'
 import { usePage } from '@inertiajs/react'
 import { type LucideIcon } from 'lucide-react'
 import { type ReactNode } from 'react'
-import { Link } from '@adonisjs/inertia/react'
+
+import { urlFor } from '~/client'
 
 export type NavRoute = Parameters<typeof urlFor>[0]
 
-export type NavItem = {
+export interface NavItem {
   label: string
   route: NavRoute
   icon?: LucideIcon

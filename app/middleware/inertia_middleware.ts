@@ -1,7 +1,9 @@
+import BaseInertiaMiddleware from '@adonisjs/inertia/inertia_middleware'
+
+import UserTransformer from '#transformers/user_transformer'
+
 import type { HttpContext } from '@adonisjs/core/http'
 import type { NextFn } from '@adonisjs/core/types/http'
-import UserTransformer from '#transformers/user_transformer'
-import BaseInertiaMiddleware from '@adonisjs/inertia/inertia_middleware'
 
 export default class InertiaMiddleware extends BaseInertiaMiddleware {
   share(ctx: HttpContext) {
@@ -13,6 +15,7 @@ export default class InertiaMiddleware extends BaseInertiaMiddleware {
      * In that case, we must always assume that HttpContext is not fully hydrated
      * with all the properties
      */
+    // SAFETY: Adonis may invoke this hook before auth middleware hydrates the context.
     const { auth, request } = ctx as Partial<HttpContext>
 
     const theme: 'light' | 'dark' =
@@ -38,6 +41,7 @@ export default class InertiaMiddleware extends BaseInertiaMiddleware {
      * object instead of props, and the client strips them from history
      * state so they never reappear when navigating back.
      */
+    // SAFETY: Adonis may invoke this hook before session middleware hydrates the context.
     const { session } = ctx as Partial<HttpContext>
 
     const success: string | undefined = session?.flashMessages.get('success')
